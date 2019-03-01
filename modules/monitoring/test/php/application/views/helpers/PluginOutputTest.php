@@ -85,9 +85,7 @@ class PluginOutputTest extends BaseTestCase
         /** @noinspection HtmlUnknownAttribute */
         $output = array(
             'Teststatus',
-            '<a href="http://localhost/test.php" target="_blank"[^>]*>Info</a>',
-            '',
-            '',
+            '<a href="http://localhost/test.php" target="_blank"[^>]*>Info</a><br><br>',
             '<a href="http://localhost/test2.php" target="_blank"[^>]*>Info2</a>'
         );
         $this->checkHtmlOutput(
