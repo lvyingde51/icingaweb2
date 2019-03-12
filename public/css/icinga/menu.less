@@ -95,38 +95,11 @@
     opacity: .8;
   }
 
-  & > a > i.letter {
-    &:before {
-      font-family: @font-family;
-      font-weight: 800;
-    }
-
-    &.letter-a:before { content: 'A'; }
-    &.letter-b:before { content: 'B'; }
-    &.letter-c:before { content: 'C'; }
-    &.letter-d:before { content: 'D'; }
-    &.letter-e:before { content: 'D'; }
-    &.letter-f:before { content: 'F'; }
-    &.letter-g:before { content: 'G'; }
-    &.letter-h:before { content: 'H'; }
-    &.letter-i:before { content: 'I'; }
-    &.letter-j:before { content: 'J'; }
-    &.letter-k:before { content: 'K'; }
-    &.letter-l:before { content: 'L'; }
-    &.letter-m:before { content: 'M'; }
-    &.letter-n:before { content: 'N'; }
-    &.letter-o:before { content: 'O'; }
-    &.letter-p:before { content: 'P'; }
-    &.letter-q:before { content: 'Q'; }
-    &.letter-r:before { content: 'R'; }
-    &.letter-s:before { content: 'S'; }
-    &.letter-t:before { content: 'T'; }
-    &.letter-u:before { content: 'U'; }
-    &.letter-v:before { content: 'V'; }
-    &.letter-w:before { content: 'W'; }
-    &.letter-x:before { content: 'X'; }
-    &.letter-y:before { content: 'Y'; }
-    &.letter-z:before { content: 'Z'; }
+  & > a > .icon-letter:before {
+    content: attr(data-letter);
+    font-family: @font-family;
+    font-weight: 800;
+    text-transform: uppercase;
   }
 }
 

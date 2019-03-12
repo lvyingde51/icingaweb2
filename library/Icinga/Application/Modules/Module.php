@@ -399,16 +399,6 @@ class Module
      */
     protected function menuSection($name, array $properties = array())
     {
-        if (! array_key_exists('icon', $properties)) {
-            $letter = '';
-            $firstLetter = $name[0];
-            if (ctype_alpha($firstLetter)) {
-                $letter = ' letter letter-' . strtolower($firstLetter);
-            }
-
-            $properties['icon'] = 'circle' . $letter;
-        }
-
         if (array_key_exists($name, $this->menuItems)) {
             $this->menuItems[$name]->setProperties($properties);
         } else {
