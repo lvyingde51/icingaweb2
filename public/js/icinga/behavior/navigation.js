@@ -157,7 +157,7 @@
     Navigation.prototype.clear = function() {
         if (this.$menu) {
             this.$menu.find('.active').removeClass('active');
-            this.$menu.find('.active-nav-level-1').removeClass('active-nav-level-1');
+            this.$menu.find('.selected').removeClass('selected');
         }
     };
 
@@ -176,7 +176,7 @@
             var $selectedMenu = $item.addClass('active');
 
             if ($selectedMenu.parent().parent('.nav-level-1')) {
-              $selectedMenu.addClass('active-nav-level-1');
+              $selectedMenu.addClass('selected');
             }
 
             // unfold the containing menu

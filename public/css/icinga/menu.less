@@ -79,10 +79,16 @@
 
   > a {
     padding: 0.5em 0.5em 0.5em .75em;
+  }
 
-    &:focus, &:hover {
-      color: @menu-highlight-color;
-    }
+  &.active:not(.selected) > a:focus,
+  &.active:not(.selected) > a:hover {
+    background-color: #232323;
+  }
+
+  &:focus:not(.selected),
+  &:hover:not(.selected) {
+    background-color: #3A3A3A;
   }
 
   // Balance icon weight for non active menu items
@@ -98,12 +104,27 @@
   }
 }
 
-#menu .nav-level-1 > .nav-item.active-nav-level-1 > a {
+ul:not(.nav-level-2) > .selected > a {
   background-color: @menu-highlight-color;
   color: @text-color-inverted;
 
   &:hover {
     color: @text-color-inverted;
+  }
+
+  &:after {
+    .transform(rotate(45deg));
+
+    position: absolute;
+    right: -.75em;
+
+    background-color: #fff;
+    box-shadow: 0 0 1em 0 rgba(0,0,0,0.6);
+    content: "";
+    display: block;
+    height: 1.25em;
+    margin-top: -1.75em;
+    width: 1.25em;
   }
 }
 
@@ -118,9 +139,16 @@
     font-size: @font-size-small;
     padding: 0.364em 0.545em 0.364em .8em;
 
-    &:hover, &:focus {
-      color: @menu-2ndlvl-highlight-color;
-    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #232323;
+  }
+
+  &:hover > a,
+  &:focus > a {
+    color: @menu-2ndlvl-highlight-color;
   }
 
   &.active {
