@@ -250,6 +250,11 @@ input.search {
   }
 }
 
+.control-group input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px @body-bg-color,  0 0 0 4px fade(@icinga-blue, 40);
+}
+
 .control-group input[type="checkbox"]:checked {
   background: @icinga-blue;
 
