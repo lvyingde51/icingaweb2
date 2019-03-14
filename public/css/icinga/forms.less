@@ -231,9 +231,9 @@ input.search {
 ***********************************************************************************************************************/
 
 @switch-height: 1.5em;
-@transition-duration: .25s;
-
 @switch-width: @switch-height * 1.75;
+
+@transition-duration: .2s;
 
 /* The switch - the box around the slider */
 .toggle-switch {
@@ -281,7 +281,7 @@ input:checked + .toggle-slider {
 }
 
 input:focus + .toggle-slider {
-  box-shadow: 0 0 0 2px @body-bg-color, 0 0 0 4px @icinga-blue-light;
+  box-shadow: 0 0 0 2px @body-bg-color, 0 0 0 5px fade(@icinga-blue, 40);
 }
 
 input:checked + .toggle-slider:before {
