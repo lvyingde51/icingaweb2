@@ -297,17 +297,10 @@ input:checked + .toggle-slider:before {
   color: @disabled-gray;
 }
 
-.control-group.disabled input {
-  background: @gray-lightest;
+.control-group input[disabled],
+.control-group select[disabled] {
+  background: @gray-lighter;
   border: none;
-}
-
-.control-group.disabled input[type="checkbox"] {
-  border: 1px solid @gray-lightest;
-
-  &:hover {
-    background-color: @gray-lightest;
-  }
 }
 
 /**********************************************************************************************************************
