@@ -19,6 +19,30 @@ form:not(.inline) {
   width: 80%;
 }
 
+.form-element,
+.form-controls {
+  display: flex;
+  margin-left: 16em;
+}
+
+.form-control {
+  display: inline-block;
+  float: right;
+
+  &:not(:last-child) {
+    margin-left: .5em;
+  }
+
+  &:last-child {
+    .clearfix();
+  }
+}
+
+.control-group {
+  display: flex;
+  position: relative;
+}
+
 #layout.minimal-layout {
   form:not(.inline) {
     width: 100%;
@@ -41,32 +65,13 @@ form:not(.inline) {
     margin-left: 0;
   }
 
-  .control-info:before {
-    margin-left: -0.5em;
+  .control-info {
+    position: relative;
+    width: 0;
+    &:before {
+      margin-left: -1.25em;
+    }
   }
-}
-
-.form-element,
-.form-controls {
-  display: flex;
-  margin-left: 16em;
-}
-
-.form-control {
-  display: inline-block;
-  float: right;
-
-  &:not(:last-child) {
-    margin-left: .5em;
-  }
-
-  &:last-child {
-    .clearfix();
-  }
-}
-
-.control-group {
-  display: flex;
 }
 
 /**********************************************************************************************************************
@@ -85,8 +90,9 @@ form:not(.inline) {
 }
 
 .control-info {
+  position: absolute;
+  right: -.75em;
   line-height: 3.5em;
-  width: 0;
 }
 
 .spinner {
