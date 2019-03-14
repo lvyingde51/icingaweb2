@@ -122,11 +122,13 @@ select ~ .spinner:before {
 }
 
 .control-group .control-label-group,
-.control-group input,
+.control-group input:not([type="checkbox"]),
+.control-group .toggle-switch,
 .control-group button,
 .control-group select,
 .control-group textarea,
 .form-controls button,
+.form-controls .toggle-switch,
 .form-controls input {
   border: none;
   border-radius: .25em;
@@ -136,6 +138,10 @@ select ~ .spinner:before {
   .appearance(none);
 }
 
+.control-group .toggle-switch,
+.form-controls .toggle-switch {
+  margin: 1em 1em 1em 0;
+}
 /**********************************************************************************************************************
                                              specific input styles
 ***********************************************************************************************************************/
@@ -224,68 +230,64 @@ input.search {
                                                IPL toggle styles
 ***********************************************************************************************************************/
 
-.control-group input[type="checkbox"] {
-  .appearance(none);
+@switch-height: 1.5em;
+@transition-duration: .25s;
+
+@switch-width: @switch-height * 1.75;
+
+/* The switch - the box around the slider */
+.toggle-switch {
   position: relative;
-
-  background: @low-sat-blue;
-  border-radius: 1em;
-  height: 9/6em;
-  padding: 0;
-  margin: 1em 0.5em 1em 0;
-  width: 8/3em;
-
-  &:before {
-    position: absolute;
-    left: 0;
-    top: 50%;
-
-    background: @text-color-inverted;
-    border-radius: 50%;
-    content: "";
-    height: 4/3em;
-    margin-left: 1/12em;
-    margin-top: -4/6em;
-    transition: left .2s ease, margin .2s ease;
-    width: 4/3em;
-  }
-
-  &:hover:not(:disabled) {
-    background: @icinga-blue-light;
-    cursor: pointer;
-  }
+  display: inline-block;
+  width: @switch-width;
+  height: @switch-height;
+  cursor: pointer;
 }
 
-.control-group input[type="checkbox"]:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px @body-bg-color,  0 0 0 4px fade(@icinga-blue, 40);
+/* Hide default HTML checkbox */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.control-group input[type="checkbox"]:checked {
-  background: @icinga-blue;
-
-  &:before {
-    background: @text-color-inverted;
-    left: 100%;
-    margin-left: -17/12em;
-  }
-
-  &:hover {
-    background: @icinga-blue-light;
-  }
+/* The slider */
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  border-radius: @switch-height;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: @low-sat-blue;
+  .transition(background-color @transition-duration);
 }
 
-.control-group input[type="checkbox"]:disabled {
-  &,
-  &:before,
-  &:hover,
-  &:hover:before {
-    background-color: @low-sat-blue;
-  }
-  &:before {
-    border: 1px solid @low-sat-blue-dark;
-  }
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  height: @switch-height * .8;
+  width: @switch-height * .8;
+  left: @switch-height * .1;
+  bottom: @switch-height * .1;
+  background-color: @text-color-inverted;
+  .transition(transform @transition-duration);
 }
+
+input:checked + .toggle-slider {
+  background-color: @icinga-blue;
+}
+
+input:focus + .toggle-slider {
+  box-shadow: 0 0 0 2px @body-bg-color, 0 0 0 4px @icinga-blue-light;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(@switch-height * .75);
+}
+
 
 /**********************************************************************************************************************
                                                  disabled inputs
