@@ -220,6 +220,11 @@ ul:not(.nav-level-2) > .selected > a {
   &.active {
     background-color: @menu-active-bg-color;
   }
+
+  &:hover,
+  &:focus {
+    background-color: mix(#000, @menu-bg-color, 20);
+  }
 }
 
 // Badge offset correction
@@ -351,6 +356,10 @@ ul:not(.nav-level-2) > .selected > a {
   position: relative;
 }
 
+.search-input:focus ~ .search-reset:hover {
+  background-color: mix(#000, @menu-active-bg-color, 20);
+}
+
 .search-reset {
   background: none;
   border: 0;
@@ -364,8 +373,9 @@ ul:not(.nav-level-2) > .selected > a {
   right: 0;
   top: 0;
 
-  &:focus, &:hover {
-    color: @menu-highlight-color;
+  &:focus,
+  &:hover {
+    background-color: mix(#000, @menu-bg-color, 20);
     outline: none;
   }
 }
