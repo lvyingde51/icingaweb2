@@ -83,12 +83,12 @@
 
   &.active:not(.selected) > a:focus,
   &.active:not(.selected) > a:hover {
-    background-color: #232323;
+    background-color: mix(#000, @menu-active-bg-color, 20);
   }
 
   &:not(.selected) > a:hover,
   &:not(.selected) > a:focus {
-    background-color: #3A3A3A;
+    background-color: mix(#000, @menu-bg-color, 20);
   }
 
   // Balance icon weight for non active menu items
@@ -107,6 +107,10 @@
 ul:not(.nav-level-2) > .selected > a {
   background-color: @menu-highlight-color;
   color: @text-color-inverted;
+
+  &:focus {
+    background-color: mix(#000, @menu-highlight-color, 20);
+  }
 
   &:hover {
     color: @text-color-inverted;
@@ -141,11 +145,7 @@ ul:not(.nav-level-2) > .selected > a {
 
   &:not(.selected) > a:hover,
   &:not(.selected) > a:focus {
-    background-color: #232323;
-  }
-
-  &:hover > a,
-  &:focus > a {
+    background-color: mix(#000, @menu-active-bg-color, 20);
     color: @menu-2ndlvl-highlight-color;
   }
 
@@ -153,6 +153,10 @@ ul:not(.nav-level-2) > .selected > a {
     background-color: @menu-highlight-color;
     overflow: hidden;
     position: relative;
+  }
+
+  &.active > a:focus {
+    background-color: mix(#000, @menu-highlight-color, 20);
   }
 
   // Little caret on active level-2 item
