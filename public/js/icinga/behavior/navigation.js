@@ -176,7 +176,7 @@
             var $selectedMenu = $item.addClass('active');
 
             if ($selectedMenu.parent().parent('.nav-level-1')) {
-              $selectedMenu.addClass('selected');
+                $selectedMenu.addClass('selected');
             }
 
             // unfold the containing menu
