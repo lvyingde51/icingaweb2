@@ -140,8 +140,8 @@ ul:not(.nav-level-2) > .selected > a {
     padding: 0.364em 0.545em 0.364em (@icon-width + .75em);
   }
 
-  &:not(.selected) > a:hover,
-  &:not(.selected) > a:focus {
+  &:not(.selected):not(.active) > a:hover,
+  &:not(.selected):not(.active) > a:focus {
     background-color: mix(#000, @menu-active-bg-color, 20);
     color: @menu-2ndlvl-highlight-color;
   }
